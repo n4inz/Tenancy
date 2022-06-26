@@ -29,8 +29,6 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $request->authenticate();
-
-        return 'test7.laravel-pertama.test';
         $request->session()->regenerate();
        
         return redirect(to: 'http://'.auth()->user()->tenant->domains[0]->domain . RouteServiceProvider::HOME);
